@@ -9,6 +9,8 @@ import { BooksProvider } from "./BooksContext";
 import Books from "./components/Books";
 import BooksDetails from "./components/BooksDetails";
 import PageNotFound from "./components/PageNotFound";
+import SecretBooks from "./components/SecretBooks";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   return (
@@ -19,6 +21,10 @@ function App() {
           <Route path="/books" element={<Navigate to="/" />} />
           <Route path="/books/:bookID" element={<BooksDetails />} />
           <Route path="*" element={<PageNotFound />} />
+          <Route
+            path="/secret"
+            element={<PrivateRoute component={<SecretBooks />} />}
+          />
         </Routes>
       </Router>
     </BooksProvider>
